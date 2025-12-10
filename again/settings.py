@@ -11,9 +11,21 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# ------------------------ STATIC FIX START ------------------------
+
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# ------------------------ STATIC FIX END --------------------------
 
 
 # Quick-start development settings - unsuitable for production
@@ -25,7 +37,12 @@ SECRET_KEY = 'django-insecure-b(jei+a)i@1&*4-@z!oq07!pj11(4t1524+t5@kt8sgrm3v7&d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["six1-day-7-django-3.onrender.com","127.0.0.1","localhost","127.0.0.1:8000"]
+ALLOWED_HOSTS = [
+    "six1-day-7-django-3.onrender.com",
+    "127.0.0.1",
+    "localhost",
+    "127.0.0.1:8000"
+]
 
 
 # Application definition
@@ -113,6 +130,4 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/6.0/howto/static-files/
-
-STATIC_URL = 'static/'  
+# (Static URL already defined above — DO NOT REPEAT)
